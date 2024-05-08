@@ -140,3 +140,8 @@ const logoutUser = asyncHandler(async (req, res) => {
                 refreshToken: 1 // this removes the field from document
             }
         },
+        {
+            new: true
+        }
+    )
+    
