@@ -150,3 +150,8 @@ const logoutUser = asyncHandler(async (req, res) => {
         .clearCookie("refreshToken", cookieOptions)
         .json(new ApiResponse(200, {}, "User logged Out Successfully"))
 })
+
+const changePassword = asyncHandler(async (req, res) => {
+    const changePasswordSchema = zod.object({
+        oldPassword: zod.string().min(8).max(20).trim(),
+        
