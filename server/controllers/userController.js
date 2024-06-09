@@ -154,4 +154,5 @@ const logoutUser = asyncHandler(async (req, res) => {
 const changePassword = asyncHandler(async (req, res) => {
     const changePasswordSchema = zod.object({
         oldPassword: zod.string().min(8).max(20).trim(),
+        newPassword: zod.string().min(8).max(20).trim(),
         
