@@ -37,7 +37,7 @@ export const authorizeRoles = (...roles) =>
 
         // req.user = req.user || {};
 
-        // req.user.role = decoded?.role
+        req.user.role = decoded?.role
         // console.log(req.user.role);
         // const role = decoded?.role
 
