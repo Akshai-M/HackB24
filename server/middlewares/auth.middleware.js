@@ -26,16 +26,16 @@ export const authorizeRoles = (...roles) =>
     asyncHandler(async (req, _res, next) => {
         const token = req.cookies?.accessToken || req.header("Authorization")?.replace("Bearer ", "")
         // console.log(token);
-        // if (!token) {
-        //     throw new ApiError(401, "Unauthorized request")
-        // }
-        // const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET)
+        if (!token) {
+            throw new ApiError(401, "Unauthorized request")
+        }
+        const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET)
 
-        // if (!decoded.role) {
-        //     throw new ApiError(401, "Unauthorized request")
-        // }
+        if (!decoded.role) {
+            throw new ApiError(401, "Unauthorized request")
+        }
 
-        // req.user = req.user || {};
+        req.user = req.user || {};
 
         req.user.role = decoded?.role
         // console.log(req.user.role);
