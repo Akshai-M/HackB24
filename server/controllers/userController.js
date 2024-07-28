@@ -26,8 +26,15 @@ const generateAccessAndRefereshTokens = async (userId) => {
     }
 }
 
+const registerUser = asyncHandler(async (req, res) => {
+    const registerSchema = zod.object({
+        email: zod.string().email(),
+        username: zod.string().min(3).max(20).trim(),
+        password: zod.string().min(8).max(20).trim(),
+    })
 
 
+    
 export {
     registerUser,
     loginUser,
