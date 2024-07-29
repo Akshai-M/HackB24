@@ -34,6 +34,8 @@ const registerUser = asyncHandler(async (req, res) => {
     })
 
 
+    // const { email, username, password,  } = registerSchema.safeParse(req.body) /* Not Works */
+    const { email, username, password } = registerSchema.parse(req.body)
     
 export {
     registerUser,
