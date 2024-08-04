@@ -47,16 +47,16 @@ const registerUser = asyncHandler(async (req, res) => {
 
     const existedUser = await User.findOne({ email })
 
-//     if (existedUser) {
-//         throw new ApiError(409, "User with email or username already exists")
-//     }
-//     //console.log(req.files);
+    if (existedUser) {
+        throw new ApiError(409, "User with email or username already exists")
+    }
+    //console.log(req.files);
 
-//     const user = await User.create({
-//         username: username.toLowerCase(),
-//         email,
-//         password,
-//     })
+    const user = await User.create({
+        username: username.toLowerCase(),
+        email,
+        password,
+    })
 
 //     const createdUser = await User.findById(user._id).select("-password -refreshToken");
 
