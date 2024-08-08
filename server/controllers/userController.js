@@ -36,7 +36,16 @@ const registerUser = asyncHandler(async (req, res) => {
 
     // const { email, username, password,  } = registerSchema.safeParse(req.body) /* Not Works */
     const { email, username, password } = registerSchema.parse(req.body)
-    
+    // const { email, username, password,  } = req.body
+
+    if (
+        // [email, username, password, ].some((field) => field?.trim() === "")
+        !email, !username, !password
+    ) {
+        throw new ApiError(400, "All fields are required")
+    }
+
+
 export {
     registerUser,
     loginUser,
