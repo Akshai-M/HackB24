@@ -78,19 +78,19 @@ const registerUser = asyncHandler(async (req, res) => {
 
 })
 
-// const loginUser = asyncHandler(async (req, res) => {
-//     const loginSchema = zod.object({
-//         email: zod.string().email(),
-//         password: zod.string().min(8).max(20).trim()
-//     })
+const loginUser = asyncHandler(async (req, res) => {
+    const loginSchema = zod.object({
+        email: zod.string().email(),
+        password: zod.string().min(8).max(20).trim()
+    })
 
-//     const { email, password } = req.body;
+    const { email, password } = req.body;
 
-//     const loginValidation = loginSchema.safeParse(req.body);
+    const loginValidation = loginSchema.safeParse(req.body);
 
-//     if (!loginValidation.success) {
-//         throw new ApiError(400, "All fields are required")
-//     }
+    if (!loginValidation.success) {
+        throw new ApiError(400, "All fields are required")
+    }
 
 //     const user = await User.findOne({
 //         email
