@@ -156,4 +156,4 @@ const changePassword = asyncHandler(async (req, res) => {
         oldPassword: zod.string().min(8).max(20).trim(),
         newPassword: zod.string().min(8).max(20).trim(),
         confirmNewPassword: zod.string().min(8).max(20).trim()
-    
+    })
