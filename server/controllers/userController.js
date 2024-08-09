@@ -92,13 +92,13 @@ const loginUser = asyncHandler(async (req, res) => {
         throw new ApiError(400, "All fields are required")
     }
 
-//     const user = await User.findOne({
-//         email
-//     }).select("+password") // Password is not available by default so we need to specify by default
+    const user = await User.findOne({
+        email
+    }).select("+password") // Password is not available by default so we need to specify by default
 
-//     if (!user) {
-//         throw new ApiError(404, "User does not exist")
-//     }
+    if (!user) {
+        throw new ApiError(404, "User does not exist")
+    }
 
 //     const isPasswordValid = await user.comparePassword(password);
 
