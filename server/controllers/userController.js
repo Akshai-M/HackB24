@@ -100,13 +100,13 @@ const loginUser = asyncHandler(async (req, res) => {
         throw new ApiError(404, "User does not exist")
     }
 
-//     const isPasswordValid = await user.comparePassword(password);
+    const isPasswordValid = await user.comparePassword(password);
 
-//     if (!isPasswordValid) {
-//         throw new ApiError(400, "Password is incorrect")
-//     }
+    if (!isPasswordValid) {
+        throw new ApiError(400, "Password is incorrect")
+    }
 
-//     user.save();
+    user.save();
 
 //     const { accessToken, refreshToken } = await generateAccessAndRefereshTokens(user._id);
 
