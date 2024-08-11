@@ -108,14 +108,14 @@ const loginUser = asyncHandler(async (req, res) => {
 
     user.save();
 
-//     const { accessToken, refreshToken } = await generateAccessAndRefereshTokens(user._id);
+    const { accessToken, refreshToken } = await generateAccessAndRefereshTokens(user._id);
 
-//     const loggedInUser = await User.findById(user._id).select("-password -refreshToken");
-//     // console.log(loggedInUser);
+    const loggedInUser = await User.findById(user._id).select("-password -refreshToken");
+    // console.log(loggedInUser);
 
-//     if (!loggedInUser) {
-//         throw new ApiError(500, "Something went wrong while logging in the user")
-//     }
+    if (!loggedInUser) {
+        throw new ApiError(500, "Something went wrong while logging in the user")
+    }
 
 //     return res
 //         .status(200)
