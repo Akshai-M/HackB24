@@ -161,4 +161,7 @@ const changePassword = asyncHandler(async (req, res) => {
     const { oldPassword, newPassword, confirmNewPassword } = req.body;
     const changePasswordValidation = changePasswordSchema.safeParse(req.body);
 
-    
+    if (!changePasswordValidation.success) {
+    }
+
+    i
