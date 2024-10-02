@@ -162,6 +162,8 @@ const changePassword = asyncHandler(async (req, res) => {
     const changePasswordValidation = changePasswordSchema.safeParse(req.body);
 
     if (!changePasswordValidation.success) {
+        throw new ApiError(400, "All fields are Required")
     }
 
-    i
+    if (newPassword !== confirmNewPassword) {
+    }
