@@ -168,3 +168,7 @@ const changePassword = asyncHandler(async (req, res) => {
     if (newPassword !== confirmNewPassword) {
         throw new ApiError(400, "Password does not match")
     }
+
+    const { refreshToken } = req.cookies;
+    // console.log(refreshToken);
+    
