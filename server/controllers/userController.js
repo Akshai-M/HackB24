@@ -171,4 +171,5 @@ const changePassword = asyncHandler(async (req, res) => {
 
     const { refreshToken } = req.cookies;
     // console.log(refreshToken);
-    
+    if (!refreshToken) {
+    }
