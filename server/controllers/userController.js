@@ -175,3 +175,6 @@ const changePassword = asyncHandler(async (req, res) => {
     }
 
     const decoded = jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET);
+
+    if (!decoded) {
+    }
